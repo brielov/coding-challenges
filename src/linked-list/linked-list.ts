@@ -1,3 +1,5 @@
+import { notImplemented } from "../util";
+
 type Node<T> = {
   readonly value: T;
   next?: Node<T>;
@@ -22,7 +24,7 @@ export class LinkedList<T> implements Iterable<T> {
    * ```
    */
   static empty<T>(): LinkedList<T> {
-    return new LinkedList<T>();
+    notImplemented();
   }
 
   /**
@@ -33,11 +35,7 @@ export class LinkedList<T> implements Iterable<T> {
    * ```
    */
   static from<T>(iterable: Iterable<T> | ArrayLike<T>): LinkedList<T> {
-    const list = LinkedList.empty<T>();
-    for (const item of Array.from(iterable).reverse()) {
-      list.prepend(item);
-    }
-    return list;
+    notImplemented();
   }
 
   get size(): number {
@@ -48,84 +46,41 @@ export class LinkedList<T> implements Iterable<T> {
    * Allows you to iterate a linked list using `for ... of` syntax.
    */
   *[Symbol.iterator](): Iterator<T> {
-    let current = this.head;
-    while (current) {
-      yield current.value;
-      current = current.next;
-    }
+    notImplemented();
   }
 
   /**
    * Add an element to the end of a linked list.
    */
   append(value: T): LinkedList<T> {
-    const node = createNode(value);
-    if (!this.head) {
-      this.head = node;
-    } else {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      current.next = current;
-      current.next = node;
-    }
-    this.#size++;
-    return this;
+    notImplemented();
   }
 
   /**
    * Add an element to the beginning of a linked list.
    */
   prepend(value: T): LinkedList<T> {
-    const node = createNode(value);
-    if (!this.head) {
-      this.head = node;
-    } else {
-      node.next = this.head;
-      this.head = node;
-    }
-    this.#size++;
-    return this;
+    notImplemented();
   }
 
   /**
    * Returns the first element of a linked list, or `undefined` if the linked list is empty.
    */
   first(): T | undefined {
-    return this.head?.value;
+    notImplemented();
   }
 
   /**
    * Returns the last element of a linked list, or `undefined` if the linked list is empty.
    */
   last(): T | undefined {
-    let current = this.head;
-    while (current?.next) {
-      current = current.next;
-    }
-    return current?.value;
+    notImplemented();
   }
 
   /**
    * Removes an element at a given index from a linked list.
    */
   removeAt(index: number): LinkedList<T> {
-    if (index < 0 || index >= this.size) return this;
-    if (index === 0) {
-      this.head = this.head?.next;
-    } else {
-      let previous: Node<T> | undefined;
-      let current = this.head;
-      let currentIndex = 0;
-      while (currentIndex < index) {
-        previous = current;
-        current = current?.next;
-        currentIndex++;
-      }
-      previous!.next = current?.next;
-    }
-    this.#size--;
-    return this;
+    notImplemented();
   }
 }
