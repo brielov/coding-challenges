@@ -1,0 +1,16 @@
+{
+  "name": "coding-challenges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:linked-list": "vitest run src/linked-list/linked-list.test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.1.6",
+    "vitest": "^0.33.0"
+  }
+}
